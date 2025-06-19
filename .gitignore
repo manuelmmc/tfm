@@ -1,0 +1,15 @@
+# Datos y artefactos pesados
+data/raw/
+data/prepared/
+models/
+runs/
+
+# Jupyter checkpoints
+**/.ipynb_checkpoints/
+
+# Python artefacts
+*.pyc
+__pycache__/
+
+# Sistema
+.DS_Store
