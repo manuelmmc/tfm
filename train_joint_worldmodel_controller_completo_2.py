@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# scripts_nuevos/train_joint_worldmodel_controller_completo.py
+# scripts_nuevos/train_joint_worldmodel_controller_completo_2.py
 """
 Entrenamiento conjunto Controller + World Model + (opcional) Clasificador para series sintéticas 24/7.
 
