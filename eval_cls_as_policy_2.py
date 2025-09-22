@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# scripts_nuevos/eval_cls_as_policy.py
+# scripts_nuevos/eval_cls_as_policy_2.py
 """
 Evalúa Sharpe usando directamente las predicciones del clasificador (acciones = {-1,0,+1}).
 
