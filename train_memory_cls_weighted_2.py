@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# scripts_nuevos/train_memory_cls_weighted.py
+# scripts_nuevos/train_memory_cls_weighted_2.py
 """
 Clasificación 3 clases (DOWN=0, NEUTRAL=1, UP=2) enfocada a señales aprendibles.
 
