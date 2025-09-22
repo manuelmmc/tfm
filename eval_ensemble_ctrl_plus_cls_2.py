@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# scripts_nuevos/eval_ensemble_ctrl_plus_cls.py
+# scripts_nuevos/eval_ensemble_ctrl_plus_cls_2.py
 """
 Evalúa un ensemble: acciones = clip( a_controlador + a_clasificador , -1, 1 )
 
