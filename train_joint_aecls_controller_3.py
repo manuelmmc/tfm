@@ -640,8 +640,7 @@ def main():
     else:
         pol = PolicyMLP(in_dim=pol_in, hidden=args.pol_hidden, dropout=args.pol_dropout if hasattr(args,"pol_dropout") else args.pol_dropout if False else args.pol_dropout if False else args.pol_dropout).to(device)  # same fallback
 
-    # Nota: arriba metí una "fallback" defensiva para pol_drop_out por si alguien renombra argumentos.
-    # Para tu script, usa lo normal:
+
     del pol  # reconstruimos limpio con los nombres estándar
     if args.policy == "transformer":
         nhead = int(args.pol_nhead)
