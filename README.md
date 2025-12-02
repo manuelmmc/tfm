@@ -1,52 +1,64 @@
-# TFM — World Models en índices bursátiles intradía
+# Modelos del Mundo y su Aplicación en Entornos de Series Temporales Complejas
 
-Repositorio de **código, notebooks y scripts** para mi Trabajo de Fin de Máster.  
-Los datos Parquet **no** se versionan: se accede a ellos mediante el enlace simbólico  
-`data/raw → ~/datasets/data/fin_parquet`.
+Este repositorio contiene la implementación oficial del Trabajo de Fin de Máster (TFM) sobre la aplicación de **World Models (Modelos del Mundo)** y arquitecturas **RSSM (Recurrent State-Space Models)** para la toma de decisiones (trading algorítmico) en series temporales financieras intradía.
 
----
-
-## Estructura del proyecto
-```
-TFM/
-├── articulos/          PDFs de referencia  (fuera de Git)
-├── data/
-│   ├── raw/            ← link a Parquet originales
-│   └── prepared/       tensores .npy generados
-├── notebooks/          exploración y experimentos
-├── scripts/            pipelines (train_wm.py, eval_policies.py…)
-├── models/             checkpoints de WM y políticas
-├── runs/               TensorBoard / métricas csv
-├── environment.yml     entorno Conda reproducible
-└── README.md           este archivo
-```
+📄 **Autor:** Manuel Moya Martín-Castaño  
+🎓 **Máster:** Investigación en Inteligencia Artificial (UIMP / AEPIA)  
+📍 **Tutores:** Sebastián Ventura y Antonio Moya
 
 ---
 
-## Reproducir el entorno
-```bash
-conda env create -f environment.yml
-conda activate tfm
-jupyter notebook          # abre los cuadernos con el kernel "Python (tfm)"
-```
+## 🚀 Resumen del Proyecto
+
+El objetivo de este proyecto es adaptar el paradigma de los **World Models** (típicamente usado en robótica y videojuegos) a series temporales financieras estocásticas y ruidosas. Se investiga si aprender una **dinámica latente** del entorno permite tomar mejores decisiones de inversión que los métodos predictivos tradicionales.
+
+### Conceptos Clave
+* **RSSM (Recurrent State-Space Model):** Una arquitectura que descompone el estado en una parte determinista (memoria GRU) y una estocástica (variables latentes), permitiendo modelar la incertidumbre.
+* **Imaginación Latente:** Capacidad del modelo para simular ("soñar") trayectorias futuras posibles sin interactuar con el mercado real, entrenando al agente sobre estas simulaciones.
+* **Entrenamiento End-to-End:** Optimización conjunta de la representación (VAE/AE), la dinámica y la política de control.
 
 ---
 
-## Flujo de trabajo
+## 🧠 Arquitecturas Implementadas
 
-| Paso | Descripción | Cuaderno / script |
-|------|-------------|-------------------|
-| 0 | **exploración** de datos | `notebooks/00_exploracion.ipynb` |
-| 1 | **preparar ventanas** 128 × F | `notebooks/01_prepara_windows.ipynb` |
-| 2 | **pre-entrenar World Model** | `scripts/train_wm.py` |
-| 3 | **entrenar Dreamer-Fin** (actor-critic) | `scripts/train_dreamer.py` |
-| 4 | **model-free PPO** baseline | `scripts/train_ppo.py` |
-| 5 | **evaluar políticas** (Sharpe, Sortino, MaxDD) | `scripts/eval_policies.py` |
-| 6 | **figuras y tablas** para la memoria | `notebooks/05_report_figures.ipynb` |
+El repositorio incluye implementaciones en **PyTorch** de las siguientes estrategias:
 
-Cada etapa escribe sus artefactos en `models/` o `runs/` y puede
-reanudar desde el último checkpoint.
+1.  **Baselines (Reglas):** Buy & Hold, Momentum/Contrarian, Cruce de Medias, Volatility Targeting.
+2.  **Modelos sin World Model:**
+    * Controlador Directo (Transformer/MLP sobre la ventana causal).
+    * Clasificador como Política (Señales discretas de trading).
+3.  **World Models Deterministas:**
+    * **AE + CLS + Controller:** Autoencoder secuencial + Clasificador direccional + Política continua.
+    * Comparativa entre entrenamiento modular (fases) vs. conjunto (joint).
+4.  **World Models Estocásticos (RSSM):**
+    * Implementación completa de RSSM adaptado a series 1D.
+    * Entrenamiento con y sin **Imaginación Latente** (rollouts del prior).
 
 ---
 
-> **Licencia:** uso estrictamente académico.
+## 📂 Estructura del Repositorio
+
+La estructura recomendada para organizar los scripts (actualmente en la raíz) es la siguiente:
+
+```text
+src/
+├── data/           # Generación de series sintéticas (MSAR, GARCH, Hawkes) y preprocesamiento.
+├── models/         # Scripts de entrenamiento de las distintas arquitecturas (Memoria, Controlador, RSSM).
+└── evaluation/     # Scripts de evaluación de políticas y cálculo de métricas (Sharpe, P&L).
+
+
+## 📊 Resultados Destacados
+
+Los experimentos realizados sobre 8 conjuntos de datos (6 sintéticos y 2 reales: SPX, BTC) mostraron que:
+
+* 🚀 **Superioridad de WM:** Las arquitecturas basadas en World Models superan consistentemente a los baselines de reglas y a los controladores directos.
+* ⚖️ **Memoria Ponderada:** El uso de clasificación ponderada para la memoria direccional mejora el Sharpe Ratio frente a la regresión directa.
+* 🔮 **Imaginación:** La "imaginación latente" aporta valor en entornos con dinámicas estables (como la familia de "motivos" o BTC), aunque su efectividad disminuye ante cambios de régimen bruscos.
+
+---
+
+## 📜 Referencias
+
+Este trabajo se inspira en World Models (Ha & Schmidhuber, 2018) y Dream to Control (Hafner et al., 2019), adaptándolos al dominio financiero.
+
+> **Nota:** Este código es parte de un trabajo de investigación académica para el Máster en Investigación en IA.
