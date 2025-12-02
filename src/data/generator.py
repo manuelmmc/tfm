@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# scripts/synth_msar_garch_hawkes_patterns.py
+# src/data/generator.py
 """
 Serie sintética: MS-AR + GARCH + Hawkes (saltos) + **motivos repetidos** (patrones cortos).
 - Conserva tu pipeline base (regímenes, estacionalidad, garch, hawkes).
