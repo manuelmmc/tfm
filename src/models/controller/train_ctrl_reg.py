@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# scripts_nuevos/train_controller_with_regcontext_1.py
+# src/models/controller/train_ctrl_reg.py
 """
 Controller con contexto (AE + REG):
 - Reconstruye features ricas retrospectivas (con / sin lambda_proxy).
