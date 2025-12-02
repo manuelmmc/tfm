@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# scripts_nuevos/train_joint_worldmodel_controller_completo_3.py
+# src/models/joint/train_rssm_v3.py
 """
 Entrenamiento conjunto Controller + World Model + (opcional) Clasificador (real/sintético)
 
