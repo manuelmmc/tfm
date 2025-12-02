@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# scripts_nuevos/train_memory_regression_1.py
+# src/models/memory/train_reg_mem.py
 """
 Regresión del retorno futuro r_H(t) (o su versión vol-aware z_H) con memoria (LSTM/Transformer + attention pooling).
 
