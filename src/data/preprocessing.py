@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# scripts/prepare_windows_synth.py
+# src/data/preprocessing.py
 """
 Prepara ventanas para mundos sintéticos 24/7 generados por synth_msar_garch_hawkes.py
 
