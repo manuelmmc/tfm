@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# scripts_nuevos/train_joint_aecls_controller_2.py
+# src/models/joint/train_aecls_v2.py
 """
 Entrenamiento conjunto: AE(LSTM) + Clasificador (LSTM/Transformer) + Controller (MLP/Transformer)
 - Features ricas retrospectivas (sin fuga). Normalización con TRAIN.
