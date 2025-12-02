@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# scripts_nuevos/train_controller_with_context_3.py
+# src/models/controller/train_ctrl_v3.py
 """
 Controller con contexto (AE + CLS) robusto para series reales:
 
