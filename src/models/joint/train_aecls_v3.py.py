@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# scripts_nuevos/train_joint_aecls_controller_3.py
+# src/models/joint/train_aecls_v3.py
 """
 Entrenamiento conjunto: AE(LSTM) + Clasificador (LSTM/Transformer) + Policy (MLP/Transformer)
 
