@@ -40,7 +40,7 @@ El repositorio incluye implementaciones en **PyTorch** de las siguientes estrate
 
 La estructura recomendada para organizar los scripts (actualmente en la raíz) es la siguiente:
 
-```text
+
 src/
 ├── data/           # Generación de series sintéticas (MSAR, GARCH, Hawkes) y preprocesamiento.
 ├── models/         # Scripts de entrenamiento de las distintas arquitecturas (Memoria, Controlador, RSSM).
