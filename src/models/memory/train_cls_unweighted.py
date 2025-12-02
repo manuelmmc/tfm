@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# scripts_nuevos/train_memory_cls_unweighted_2.py
+# src/models/memory/train_cls_unweighted.py
 """
 Clasificación 3 clases (DOWN=0, NEUTRAL=1, UP=2) SIN ponderación de clases (unweighted).
 
