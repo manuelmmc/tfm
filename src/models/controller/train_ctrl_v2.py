@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# scripts_nuevos/train_controller_with_context_2.py
+# src/models/controller/train_ctrl_v2.py
 """
 Controller con contexto (AE + CLS):
 - Reconstruye features ricas retrospectivas (con / sin lambda_proxy).
